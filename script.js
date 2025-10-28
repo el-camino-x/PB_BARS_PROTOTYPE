@@ -157,4 +157,4 @@ fetch(csvUrl)
   })
   .catch(err => console.error('Error fetching CSV:', err));
 
-
+  window.location.replace("index.html");
