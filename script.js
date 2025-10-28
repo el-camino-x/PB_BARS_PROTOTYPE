@@ -105,3 +105,55 @@ document.addEventListener("DOMContentLoaded", function() {
     smoothScroll(eventsSection); 
   });
 });
+
+// ===== Fetch CSV & buat jadwal per liga =====
+const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRM7FJDsMeuc5Bd4YtlepevwvC5tOjFK3Otr11m6-r2EWwSCF4FoCwEGhsdnCceLAvgp-ePCtHoqsne/pub?gid=277137777&single=true&output=csv';
+
+fetch(csvUrl)
+  .then(response => response.text())
+  .then(data => {
+    const rows = data.split('\n').slice(1);
+    const matchList = document.querySelector('.match-list');
+
+    const matchesByLeague = {};
+    rows.forEach(row => {
+      if (!row) return;
+      const [tanggal, jam, liga, home, away, logoHome, logoAway] = row.split(',');
+      if (!matchesByLeague[liga]) matchesByLeague[liga] = [];
+      matchesByLeague[liga].push({ tanggal, jam, home, away, logoHome, logoAway });
+    });
+
+    for (const liga in matchesByLeague) {
+      const leagueSection = document.createElement('div');
+      leagueSection.classList.add('league-section');
+
+      const leagueTitle = document.createElement('h3');
+      leagueTitle.textContent = liga;
+      leagueTitle.classList.add('league-title');
+      leagueSection.appendChild(leagueTitle);
+
+      matchesByLeague[liga].forEach(match => {
+        const matchCard = document.createElement('div');
+        matchCard.classList.add('match-card', 'has-league-logo');
+        matchCard.dataset.league = liga; // **penting**
+
+        // innerHTML tetap
+        matchCard.innerHTML = `
+          <div class="match-time">${match.tanggal} | ${match.jam}</div>
+          <div class="match-teams">
+            <img src="${match.logoHome}" alt="${match.home}" class="team-logo">
+            <span class="team-name">${match.home}</span>
+            <span>vs</span>
+            <span class="team-name">${match.away}</span>
+            <img src="${match.logoAway}" alt="${match.away}" class="team-logo">
+          </div>
+        `;
+
+        leagueSection.appendChild(matchCard);
+      });
+
+      matchList.appendChild(leagueSection);
+    }
+  })
+  .catch(err => console.error('Error fetching CSV:', err));
+
