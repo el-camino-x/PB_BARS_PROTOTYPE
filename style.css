@@ -386,3 +386,168 @@ html, body {
   }
 }
 
+/* ===== Match Schedule ===== */
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.match-card {
+  background-color: #1c1c1c;       /* gelap, biar hijau pop out */
+  border: 2px solid #00b14f;      /* border hijau elegan */
+  border-radius: 12px;
+  padding: 15px 20px;              /* lebih lega di dalam box */
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px rgba(0,177,79,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.match-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 110, 0.7);
+}
+
+.match-time {
+  font-size: 1.3rem;               /* diperbesar */
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.9rem;               /* teks tim diperbesar */
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.match-league {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #00b14f;
+  text-shadow: 0 0 4px #00ff66;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .match-teams {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .team-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .match-time, .match-league {
+    font-size: 0.9rem;
+  }
+}
+
+.league-section {
+  margin-bottom: 30px;
+  border-top: 2px solid #00b14f;
+  padding-top: 15px;
+}
+
+.league-title {
+  text-align: center;      /* Tengah horizontal */
+  font-size: 1.8rem;       /* Sesuaikan ukuran */
+  color: #00b14f;          /* Hijau elegan */
+  margin: 20px 0;          /* Jarak atas-bawah */
+  text-shadow: 0 0 6px rgba(0,177,79,0.5); /* Sedikit glowing */
+  font-family: 'Poppins', sans-serif;      /* Sesuai font website */
+}
+
+.match-card.has-league-logo {
+  position: relative;
+  background-color: #1c1c1c;
+  overflow: hidden;
+}
+
+/* Logo liga sebagai pseudo-element */
+.match-card.has-league-logo::before {
+  content: "";
+  position: absolute;
+  top: 9%;
+  left: 10px; 
+  width: 90%;        /* penuh lebar card */
+  height: 90%;       /* penuh tinggi card */
+  opacity: 0.15;      /* lebih transparan biar teks tetap jelas */
+  background-size: contain; /* bisa juga 'cover' kalau mau full */
+  background-repeat: no-repeat;
+  background-position: left; /* posisi di tengah */
+}
+
+/* Logo tiap liga via data attribute */
+.match-card[data-league="Premier League"]::before {
+  background-image: url('https://i.postimg.cc/4dkJfngy/4c377s1535214890.png');
+}
+.match-card[data-league="La Liga"]::before {
+  background-image: url('https://i.postimg.cc/6qpFtNy7/La-Liga-logo-red-horizontal-PNG-large-size.png');
+}
+.match-card[data-league="Serie A"]::before {
+  background-image: url('https://i.postimg.cc/HLmZTCNs/Serie-A.png');
+}
+.match-card[data-league="Bundesliga"]::before {
+  background-image: url('https://i.postimg.cc/htLsy5GF/bundesliga-logo.png');
+}
+.match-card[data-league="Ligue 1"]::before {
+  background-image: url('https://i.postimg.cc/q7gLJMGs/Ligue1-logo.png');
+}
+.match-card[data-league="Primeira Liga"]::before {
+  background-image: url('https://i.postimg.cc/DZt0JFXk/Primeiraliga.webp');
+}
+.match-card[data-league="Süper Lig"]::before {
+  background-image: url('https://i.postimg.cc/J0d7Wx7Q/Super-Lig-logo-svg.png');
+}
+.match-card[data-league="Saudi Pro League"]::before {
+  background-image: url('https://i.postimg.cc/K8TGdt69/Roshn-Saudi-League-Logo-svg.png');
+}
+.match-card[data-league="MLS"]::before {
+  background-image: url('https://i.postimg.cc/QCPDzM0t/MLS-crest-logo-CMYK-gradient-svg.png');
+}
+.match-card[data-league="UEFA Champions League"]::before {
+  background-image: url('https://i.postimg.cc/HLHgRR40/Logo-UEFA-Champions-League.png');
+}
+.match-card[data-league="Eredivisie"]::before {
+  background-image: url('https://i.postimg.cc/nhK84T8R/Eredivisie-nuovo-logo.png');
+}
+.match-card[data-league="NBA"]::before {
+  background-image: url('https://i.postimg.cc/4yHqmQQ3/nba-logo-brandlogos-net-ipeky.png');
+}
+.match-card[data-league="NFL"]::before {
+  background-image: url('https://i.postimg.cc/BZ1J8T6G/NFL-logo.png');
+}
+.match-card[data-league="NHL"]::before {
+  background-image: url('https://i.postimg.cc/zDW1DqtR/NHL-Logo.png');
+}
+.match-card[data-league="UFC"]::before {
+  background-image: url('https://i.postimg.cc/nVq6b0rC/2560px-UFC-Logo-svg.png');
+}
+.match-card[data-league="National Rugby League"]::before {
+  background-image: url('https://i.postimg.cc/HkF2L1Py/National-Rugby-League-svg.png');
+}
+.match-card[data-league="Bri LIga 1"]::before {
+  background-image: url('https://i.postimg.cc/Pf61xkCH/logo-liga-1-logo-bri-liga-1-bri-liga-1-1-169.png');
+}
