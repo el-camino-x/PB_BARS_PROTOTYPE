@@ -434,7 +434,8 @@ html, body {
   font-size: 1.2rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 10px;
+  margin-top: 8px;   /* geser turun */
+  margin-bottom: 12px; /* jarak dari tim */
   text-align: center; 
 }
 
@@ -446,6 +447,7 @@ html, body {
   font-size: 1.1rem;
   font-weight: bold;
   color: #e0e0e0;
+  transform: translateY(-8px);
 }
 
   .team-logo {
@@ -573,6 +575,5 @@ html, body {
 .match-card[data-league="Bri LIga 1"]::before {
   background-image: url('https://i.postimg.cc/Pf61xkCH/logo-liga-1-logo-bri-liga-1-bri-liga-1-1-169.png');
 }
-
 
 
