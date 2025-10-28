@@ -413,15 +413,15 @@ html, body {
 }
 
 .match-card {
-  background-color: #1c1c1c;  
-  border: 2px solid #00b14f;   
-  border-radius: 12px;
-  padding: 15px 20px;  
-  margin-bottom: 20px;
-  box-shadow: 0 0 12px rgba(0,177,79,0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #1c1c1c;
+  border: 2px solid #00b14f;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px rgba(0,177,79,0.4);
 }
 
 
@@ -431,20 +431,21 @@ html, body {
 }
 
 .match-time {
-  font-size: 1.3rem;    
+  font-size: 1.2rem;
   font-weight: 600;
   color: #fff;
   margin-bottom: 10px;
+  text-align: center; 
 }
 
 .match-teams {
   display: flex;
-  align-items: center;
+  align-items: center; 
+  justify-content: center; 
   gap: 12px;
-  font-size: 1.9rem;  
+  font-size: 1.1rem;
   font-weight: bold;
   color: #e0e0e0;
-  margin-bottom: 10px;
 }
 
   .team-logo {
@@ -463,6 +464,10 @@ html, body {
   font-weight: bold;
   color: #00b14f;
   text-shadow: 0 0 4px #00ff66;
+}
+
+.vs-text {
+  transform: translateY(-5px);
 }
 
 /* Responsive */
@@ -568,5 +573,6 @@ html, body {
 .match-card[data-league="Bri LIga 1"]::before {
   background-image: url('https://i.postimg.cc/Pf61xkCH/logo-liga-1-logo-bri-liga-1-bri-liga-1-1-169.png');
 }
+
 
 
