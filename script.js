@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ===== Fetch CSV & buat jadwal per liga =====
-const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRM7FJDsMeuc5Bd4YtlepevwvC5tOjFK3Otr11m6-r2EWwSCF4FoCwEGhsdnCceLAvgp-ePCtHoqsne/pub?gid=277137777&single=true&output=csv';
+const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRM7FJDsMeuc5Bd4YtlepevwvC5tOjFK3Otr11m6-r2EWwSCF4FoCwEGhsdnCceLAvgp-ePCtHoqsne/pub?output=csv';
 
 fetch(csvUrl)
   .then(response => response.text())
@@ -156,4 +156,5 @@ fetch(csvUrl)
     }
   })
   .catch(err => console.error('Error fetching CSV:', err));
+
 
