@@ -525,10 +525,11 @@ html, body {
 
 .match-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* dua kolom */
+  gap: 20px; /* jarak antar blok liga */
   padding: 20px;
 }
+
 
 
 /* Logo tiap liga via data attribute */
