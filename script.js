@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
   // ===== Slider =====
   const track = document.querySelector('#menu .slider-track');
@@ -177,3 +178,27 @@ fetch(csvUrl)
     }
   })
   .catch(err => console.error('Error fetching CSV:', err));
+
+
+// ===== Event Card Modal =====
+const eventCards = document.querySelectorAll('.event-card');
+const modal = document.getElementById('event-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const closeModal = document.querySelector('.close-modal');
+
+eventCards.forEach(card => {
+  card.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalTitle.textContent = card.querySelector('h3').textContent;
+    modalDesc.innerHTML = card.dataset.desc; // pakai innerHTML supaya <br> berfungsi
+  });
+});
+
+closeModal.addEventListener('click', () => modal.style.display = 'none');
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) modal.style.display = 'none';
+});
+
+
