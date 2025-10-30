@@ -40,37 +40,48 @@
     </div>
   </main>
 
-<section id="tv-channels">
-  <h2></h2>
-  <div class="channels-container">
-    <img src="https://i.postimg.cc/sghYP9G2/download-1.png" alt="All TV Channels Logos" class="channel-logos">
-  </div>
-</section>
-
-
-  <section id="events">
+<section id="events">
   <div class="running-text">
     <p>🍹 “Watch, Drink, Celebrate!” – Only at Penjaga Bumi Sports Bar 🏆 Live Football Tonight: Guess the Score & Win Prizes!</p>
   </div>
 
-    <div class="events-container">
-      <h2>What’s Happening Here</h2>
-      <div class="events-grid">
-        <!-- Contoh Event -->
-        <div class="event-card">
-          <img src="https://i.postimg.cc/GtMHFWqv/Untitled-design.png" alt="Event">
-          <h3>Guess the Score</h3>
-          <p>Every Day</p>
-        </div>
-        <div class="event-card">
-          <img src="https://i.postimg.cc/8ckSbs0R/360-F-685017539-p9u-HMCSZoa-Wz7A6M37kh-S5qvm-Qt-CSp-JW.jpg" alt="Event">
-          <h3>Beer Night</h3>
-          <p>Every Saturday 7 PM - 1 AM</p>
-        </div>
-        <!-- Tambahkan event baru di sini -->
+  <div class="events-container">
+    <h2>What’s Happening Here</h2>
+    <div class="events-grid">
+      <!-- Contoh Event -->
+      <div class="event-card" data-desc="
+              Every $10 spent = 1 ticket to predict the score of your favorite match! 😎<br>
+              The more tickets you have, the greater your chance to win.<br>
+              Submit your guess to the cashier – don’t miss out!<br>
+              Score right = 1 Tower of Beer 🍺<br><br>
+              Play. Predict. Win. Repeat! ⚽🏀">
+        <img src="https://i.postimg.cc/GtMHFWqv/Untitled-design.png" alt="Event">
+        <h3>Guess the Score</h3>
+        <p>Every Day</p>
       </div>
+      <div class="event-card" data-desc="              Every Saturday night, enjoy beer specials and live music from 7 PM to 1 AM.<br>
+              Grab your friends and experience a night full of fun and drinks.<br>
+              Special discounts on selected beers.<br><br>
+              Drink, Dance, Celebrate! 🎶🍺">
+        <img src="https://i.postimg.cc/8ckSbs0R/360-F-685017539-p9u-HMCSZoa-Wz7A6M37kh-S5qvm-Qt-CSp-JW.jpg" alt="Event">
+        <h3>Beer Night</h3>
+        <p>Every Saturday 7 PM - 1 AM</p>
+      </div>
+      <!-- Tambahkan event baru di sini -->
     </div>
-  </section>
+  </div>
+
+  <!-- Modal Event -->
+  <div id="event-modal" class="event-modal">
+  <div class="overlay"></div> 
+  <div class="event-modal-content">
+    <span class="close-modal">&times;</span>
+    <h3 id="modal-title">Event Title</h3>
+    <p id="modal-desc">Event description here...</p>
+  </div>
+</div>
+  </div>
+</section>
   
 <section id="menu">
   <h2>Penjaga Bumi Sports Bar & Cafe Menu</h2>
@@ -79,7 +90,7 @@
   <h3 id="current-menu-title" class="menu-title">Signature Bar Menu</h3>
 
   <div class="slider-container">
-    <button class="prev">&lt;</button>
+    <button class="prev"><</button>
     <div class="slider-track">
       <div class="slider-item">
         <img src="https://i.postimg.cc/Rh5WPML9/imgpsh-fullsize-7.png" alt="Signature Bar Menu">
@@ -100,7 +111,7 @@
         <img src="https://i.postimg.cc/cCyvDsB1/imgpsh-fullsize.jpg" alt="Juice & Smoothies Menu">
       </div>
     </div>
-    <button class="next">&gt;</button>
+    <button class="next">></button>
   </div>
 </section>
 
@@ -108,7 +119,7 @@
 
   
   <footer>
-    <p>&copy; 2025 PENJAGA BUMI SPORTS BAR & CAFE</p>
+    <p>© 2025 PENJAGA BUMI SPORTS BAR & CAFE</p>
   </footer>
 <script src="script.js"></script>
 </body>
