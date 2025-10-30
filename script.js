@@ -109,10 +109,30 @@ document.addEventListener("DOMContentLoaded", function() {
 // ===== Fetch CSV & buat jadwal per liga =====
 const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRM7FJDsMeuc5Bd4YtlepevwvC5tOjFK3Otr11m6-r2EWwSCF4FoCwEGhsdnCceLAvgp-ePCtHoqsne/pub?output=csv';
 
+const leagueLogos = {
+  "Premier League": "https://i.postimg.cc/4dkJfngy/4c377s1535214890.png",
+  "La Liga": "https://i.postimg.cc/6qpFtNy7/La-Liga-logo-red-horizontal-PNG-large-size.png",
+  "Serie A": "https://i.postimg.cc/HLmZTCNs/Serie-A.png",
+  "Bundesliga": "https://i.postimg.cc/htLsy5GF/bundesliga-logo.png",
+  "Ligue 1": "https://i.postimg.cc/q7gLJMGs/Ligue1-logo.png",
+  "Primeira Liga": "https://i.postimg.cc/DZt0JFXk/Primeiraliga.webp",
+  "Süper Lig": "https://i.postimg.cc/J0d7Wx7Q/Super-Lig-logo-svg.png",
+  "Saudi Pro League": "https://i.postimg.cc/K8TGdt69/Roshn-Saudi-League-Logo-svg.png",
+  "MLS": "https://i.postimg.cc/QCPDzM0t/MLS-crest-logo-CMYK-gradient-svg.png",
+  "UEFA Champions League": "https://i.postimg.cc/HLHgRR40/Logo-UEFA-Champions-League.png",
+  "Eredivisie": "https://i.postimg.cc/nhK84T8R/Eredivisie-nuovo-logo.png",
+  "NBA": "https://i.postimg.cc/4yHqmQQ3/nba-logo-brandlogos-net-ipeky.png",
+  "NFL": "https://i.postimg.cc/BZ1J8T6G/NFL-logo.png",
+  "NHL": "https://i.postimg.cc/zDW1DqtR/NHL-Logo.png",
+  "UFC": "https://i.postimg.cc/nVq6b0rC/2560px-UFC-Logo-svg.png",
+  "National Rugby League": "https://i.postimg.cc/HkF2L1Py/National-Rugby-League-svg.png",
+  "Bri LIga 1": "https://i.postimg.cc/Pf61xkCH/logo-liga-1-logo-bri-liga-1-bri-liga-1-1-169.png"
+};
+
 fetch(csvUrl)
   .then(response => response.text())
   .then(data => {
-    const rows = data.split('\n').slice(1);
+    const rows = data.split(/\r?\n/).slice(1); // handle \r\n
     const matchList = document.querySelector('.match-list');
 
     const matchesByLeague = {};
@@ -127,17 +147,18 @@ fetch(csvUrl)
       const leagueSection = document.createElement('div');
       leagueSection.classList.add('league-section');
 
+      // ===== League Title dengan Logo =====
       const leagueTitle = document.createElement('h3');
-      leagueTitle.textContent = liga;
       leagueTitle.classList.add('league-title');
+      const logoUrl = leagueLogos[liga] || '';
+      leagueTitle.innerHTML = logoUrl ? `<img src="${logoUrl}" alt="${liga} logo"> ${liga}` : liga;
       leagueSection.appendChild(leagueTitle);
 
       matchesByLeague[liga].forEach(match => {
         const matchCard = document.createElement('div');
-        matchCard.classList.add('match-card', 'has-league-logo');
-        matchCard.dataset.league = liga; // **penting**
+        matchCard.classList.add('match-card', 'has-league-logo'); // tetap ada class ini
+        matchCard.dataset.league = liga;
 
-        // innerHTML tetap
         matchCard.innerHTML = `
           <div class="match-time">${match.tanggal} | ${match.jam}</div>
           <div class="match-teams">
