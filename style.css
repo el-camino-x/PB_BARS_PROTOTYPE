@@ -496,13 +496,43 @@ html, body {
 }
 
 .league-title {
-  text-align: center;    
-  font-size: 1.8rem; 
-  color: #00b14f;  
-  margin: 20px 0;     
-  text-shadow: 0 0 6px rgba(0,177,79,0.5);
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00ff66, 0 0 5px #00ff66, 0 0 10px #00ff66;
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* jarak logo dan teks */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
 }
+
+.league-title img {
+  width: 40px;   /* ukuran logo */
+  height: auto;
+  order: -1;     /* memastikan logo di kiri teks */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .league-title {
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+  .league-title img {
+    width: 30px;
+  }
+}
+
 
 .match-card.has-league-logo {
   position: relative;
@@ -530,6 +560,34 @@ html, body {
   padding: 20px;
 }
 
+
+/* Animasi fade-in + slide-up */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.match-card, .league-section {
+  opacity: 0; /* mulai tersembunyi */
+  animation: fadeSlideUp 0.6s forwards;
+}
+
+
+
+/* Delay bertahap supaya muncul bergantian */
+.league-section {
+  animation-delay: 0.2s;
+}
+
+.match-card {
+  animation-delay: 0.4s;
+}
 
 
 /* Logo tiap liga via data attribute */
@@ -584,4 +642,3 @@ html, body {
 .match-card[data-league="Bri LIga 1"]::before {
   background-image: url('https://i.postimg.cc/Pf61xkCH/logo-liga-1-logo-bri-liga-1-bri-liga-1-1-169.png');
 }
-
